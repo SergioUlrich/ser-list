@@ -9,7 +9,7 @@ function addNumber(elem){
 function addAtNumber(elem, index){
     elem=parseInt(document.getElementById("num").value); //Recoge el valor del input con el id num
     index=parseInt(document.getElementById("index").value); //Recoge el valor del input con el id index
-    addAt(list,num,index);
+    addAt(list,elem,index);
 }
 function getNumber(index){
     index=parseInt(document.getElementById("index").value); //Recoge el valor del input con el id index
