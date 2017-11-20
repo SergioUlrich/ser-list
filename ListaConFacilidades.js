@@ -1,42 +1,40 @@
 "use strict";
 var max=10;
-
 //page functions
 function addNumber(elem){
-    elem=parseInt(document.getElementById("num").value); //Recoge el valor del input con el id num
-    add(list,elem); //Llamamos a la funcion pasandole los parametros
+    elem=parseInt(document.getElementById("num").value);
+    add(list, elem);
 }
 function addAtNumber(elem, index){
-    elem=parseInt(document.getElementById("num").value); //Recoge el valor del input con el id num
-    index=parseInt(document.getElementById("index").value); //Recoge el valor del input con el id index
-    addAt(list,num,index);
+    elem=parseInt(document.getElementById("num").value);
+    index=parseInt(document.getElementById("index").value);
+    addAt(list,elem,index);
 }
 function getNumber(index){
-    index=parseInt(document.getElementById("index").value); //Recoge el valor del input con el id index
+    index=parseInt(document.getElementById("index").value);
     get(list, index);
 }
 function indexOfNumber(elem){
-    elem=parseInt(document.getElementById("num").value); //Recoge el valor del input con el id num
+    elem=parseInt(document.getElementById("num").value);
     indexOf(list, elem);
 }
 function lastIndexOfNumber(elem){
-    elem=parseInt(document.getElementById("num").value); //Recoge el valor del input con el id num
+    elem=parseInt(document.getElementById("num").value);
     lastIndexOf(list, elem);
 }
 function removeNumber(index){
-    index=parseInt(document.getElementById("index").value); //Recoge el valor del input con el id index
+    index=parseInt(document.getElementById("index").value);
     remove(list, index);
 }
 function removeElementNumber(elem){
-    elem=parseInt(document.getElementById("num").value); //Recoge el valor del input con el id num
+    elem=parseInt(document.getElementById("num").value);
     removeElement(list, elem);
 }
 function setNumber(elem, index){
-    elem=parseInt(document.getElementById("num").value); //Recoge el valor del input con el id num
-    index=parseInt(document.getElementById("index").value); //Recoge el valor del input con el id index
+    elem=parseInt(document.getElementById("num").value);
+    index=parseInt(document.getElementById("index").value);
     set(list, elem, index);
 }
-
 
 
 //functions
@@ -46,7 +44,6 @@ function create(){
     return list;
 }
 
-//Creo la lista
 var list=create();
 
 function isEmpty(list){
@@ -67,6 +64,7 @@ function isFull(list){
         full=true;
     }else{
         console.log("La lista NO esta llena");
+        full=false;
     }
     return full;
 }
@@ -82,16 +80,15 @@ function add(list, elem){
             throw "El elemento no es un numero";
         }
         if (list.length<max) {
-            list[list.length]=elem; //Asignamos el numero a la lista
+            list.push(elem);
             console.log("Numero añadido");
         }else{
             throw "La lista esta llena";
         }
-        return size(list); //Devolvemos el tamaño de la lista cada vez que se instroduce un numero
+        return size(list);
     }catch(error){
         console.log(error);
     }
-    
 }
 
 function addAt(list, elem, index){
@@ -103,16 +100,15 @@ function addAt(list, elem, index){
             throw "El indice esta fuera del limite";
         }
         if (list.length<max) {
-            list[index]=elem; //Asignamos el elemento en la posicion indicada de la lista
-            console.log("Numero añadido en la posicion "+index);
+            list.splice(index,0,elem);
+            console.log("Numero añadido en la posicion ");
         }else{
-            throw "La lista esta llena ";
+            throw "No se ha podido añadir en la posicion ";
         }
         return size(list);
     }catch(error){
         console.log(error);
     }
-    
 }
 
 function get(list, index){
@@ -120,7 +116,7 @@ function get(list, index){
         if(index>list.length){
             throw "El indice esta fuera del limite";
         }
-        var elem=list[index]; 
+        var elem=list[index];
         console.log("get:"+elem);
         return elem;
     }catch(error){
@@ -131,48 +127,35 @@ function get(list, index){
 function toStrings(list){
     var str = "";
     if (list.length!=0){	
-        for (var i=0; i<list.length-1;i++){ //Recorremos la lista
-            str += list[i] + " - "; //Asignamos a la variable str un numero y un guion por cada elemento de la lista
-        } 		 		
-        str += list[i]; 
-        console.log("ToString: "+str);		
+        str=list.join("-"); 		 		 		
     } 	
+    console.log("ToString: "+str);
     return str;
 }
 
 function indexOf(list, elem){
     try{
-        var posicion;        
+        var posicion;
         if (isNaN(elem)) {
             throw "El elemento no es un numero";
         }
-        for (var i = 0; i < list.length; i++) {
-            if (elem==list[i]) { //Si el elemento coincide con uno de la lista
-                posicion=i; //guardamos la posicion
-                console.log("El elemento se encuentra en la posicion: "+posicion);
-            }
-        }
+        posicion=list.indexOf(elem);
+        console.log("El elemento se encuentra en la pos: "+posicion);
         return posicion;
     }catch(error){
         console.log(error);
-    } 
+    }
 }
 
 function lastIndexOf(list, elem){
     try{
-        var esta=false;
+        var posicion;
         if (isNaN(elem)) {
             throw "El elemento no es un numero";
         }
-        for (var i = size(list); i > 0; i--) { //Recorremos la lista del final al principio
-            if (list[i]===elem) {
-                var prim=i;
-                esta=true;
-                i=0;
-                console.log("El elemento se encuentra en la posicion "+prim);
-            }  
-        }
-        return esta;
+        posicion=list.lastIndexOf(elem);
+        console.log("El elemento esta en la posicion: "+posicion);
+        return posicion;
     }catch(error){
         console.log(error);
     }
@@ -180,7 +163,6 @@ function lastIndexOf(list, elem){
 
 function capacity(list){
     console.log("La capacidad es de "+max);
-    return max;
 }
 
 function clearr(list){
@@ -196,6 +178,7 @@ function firstElement(list){
         if (list.length==0) {
             throw "La lista esta vacia";
         }
+        
         console.log("El primer elemento es "+prim);
         return prim;
     }catch(error){
@@ -224,10 +207,9 @@ function remove(list, index){
         if(index>list.length){
             throw "El indice esta fuera del limite";
         }
-        for (var i = 0; i < list.length; i++) { //Recorremos la lista
-            if (index==i) { // Si el indice pasado es igual a la posicion de la lista por la que esta el bucle
-                consumido=list[i]; //guardamos en la variable consumido, el numero de esa posicion
-                list[i]=Number.NaN;// y en esa posicion añadimos un NaN
+        for (var i = 0; i < list.length; i++) {
+            if (index==i) {
+                consumido=list.splice(index, 1);
                 console.log("Consumido: "+consumido);
             }
         }
@@ -239,19 +221,13 @@ function remove(list, index){
 
 function removeElement(list, elem){
     try{
-        var borrado=false;
         if (isNaN(elem)) {
             throw "El elemento no es un numero";
         }
-
-        for (var i = 0; i < list.length; i++) {
-            if (elem==list[i]) {
-                borrado=true;
-                list[i]=Number.NaN;
-                console.log("Borrado: "+borrado);
-            }
-        }
-        return borrado;
+        var index=list.indexOf(elem);
+        var consumido=list.splice(index,1);
+        console.log("Borrado: "+consumido);
+        return consumido;
     }catch(error){
         console.log(error);
     }
@@ -266,10 +242,10 @@ function set(list, elem, index){
             throw "El indice esta fuera del limite";
         }
         if (list.length<max) {
-            list[index]=elem;
-            console.log("Numero añadido en la posicion: ");
+            var pos=list.splice(index, 1, elem);
+            console.log("Numero remplazado es el "+pos+" en la posicion "+index);
         }else{
-            throw "No se ha podido añadir en la posicion: ";
+            throw "No se ha podido añadir en la posicion ";
         }
         return index;
     }catch(error){
@@ -278,6 +254,5 @@ function set(list, elem, index){
 }
 
 function mostrar(list){
-       console.log(list);
+    console.log(list);
 }
-

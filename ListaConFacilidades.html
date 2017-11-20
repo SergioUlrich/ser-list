@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Facilidades</title>
+</head>
+<body>
+        <h2>Lista Con Facilidades</h2>
+        
+            <input type="text" id="num" placeholder="Numero">
+            <input type="texto" id="index" placeholder="Posicion">
+            <button onclick="addNumber(num)" title="Inserta numero" >Añadir</button>
+            <button onclick="addAtNumber(num, index)" title="Inserta numero y posicion" >Añadir en posicion</button>
+            <button onclick="mostrar(list)">Mostrar</button><br>
+            <br>
+            <button onclick="isEmpty(list)">Vacia?</button>
+            <button onclick="isFull(list)">Llena?</button>
+            <button onclick="size(list)">Size</button>
+            <button onclick="capacity(list)">Capacidad</button>
+            <button onclick="toStrings(list)">toString</button>
+            <button onclick="clearr(list)">Limpiar</button>
+            <button onclick="getNumber(index)" title="Inserta posicion">get</button>
+            <button onclick="indexOfNumber(num)" title="Inserta numero">indexOf</button>
+            <button onclick="lastIndexOfNumber(num)" title="Inserta numero">LastIndexOf</button><br>
+            <br>
+        
+            <button onclick="removeNumber(index)" title="Inserta posicion">Eliminar</button>
+            <button onclick="removeElementNumber(num)" title="Inserta numero">Eliminar elemento</button>
+            <button onclick="setNumber(num, index)" title="Inserta numero y posicion">Set</button>
+            <button onclick="firstElement(list)">Primero elemento</button>
+            <button onclick="lastElement(list)">Ultimo elemento</button>
+
+    <script src="ListaConFacilidades.js"></script>
+</body>
+</html>
