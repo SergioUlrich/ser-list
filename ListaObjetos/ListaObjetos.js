@@ -53,6 +53,9 @@ function list(){
         if (this.isFull()) {
             throw new ExceptionListaLlena();
         }
+        if (index>this.size()) {
+            throw new ExceptionFueraRango();
+        }
         _list.splice(index,0,elem);
         return this.size();
     }
@@ -60,6 +63,9 @@ function list(){
     this.get=function(index){
         if (this.isEmpty()) {
             throw new ExceptionListaVacia();
+        }
+        if (index>this.size()) {
+            throw new ExceptionFueraRango();
         }
         var elem=_list[index];
         return elem;
@@ -122,6 +128,9 @@ function list(){
         if (this.isEmpty()) {
             throw new ExceptionListaVacia();
         }
+        if (index>this.size()) {
+            throw new ExceptionFueraRango();
+        }
         var consumido;
         for (var i = 0; i < _list.length; i++) {
             if (index==i) {
@@ -159,27 +168,39 @@ function testeo(){
     console.log("Capacity: " + list.capacity());
 
     //Añadimos un objeto a la lista:
-    console.log("------Añadimos un objeto a la lista:----------")
-    console.log("Añadido. Size: "+list.add(person1));
-    console.log("Lista: "+list.toString());
-    console.log("Size: " + list.size());
-    console.log("¿Vacia?: "+list.isEmpty());
+    try{
+        console.log("------Añadimos un objeto a la lista:----------")
+        console.log("Añadido. Size: "+list.add(person1));
+        console.log("Lista: "+list.toString());
+        console.log("Size: " + list.size());
+        console.log("¿Vacia?: "+list.isEmpty());
+    }catch(error){
+        console.log(error);
+    }
 
-    console.log("------Añadimos un objeto a la lista en una posicion:----------")
-    console.log("Añadido. Size: "+list.addAt(person3,0));
-    console.log("Añadido. Size: "+list.addAt(person2,1));
-    console.log("Añadido. Size: "+list.addAt(person4,0));
-    console.log("Añadido. Size: "+list.addAt(person5,3));
-    console.log("Añadido. Size: "+list.addAt(person3,4));
-    console.log("Lista: "+list.toString());
-    console.log("Size: " + list.size());
-    console.log("¿Vacia?: "+list.isEmpty());
+    try{
+        console.log("------Añadimos un objeto a la lista en una posicion:----------")
+        console.log("Añadido. Size: "+list.addAt(person3,0));
+        console.log("Añadido. Size: "+list.addAt(person2,1));
+        console.log("Añadido. Size: "+list.addAt(person4,0));
+        console.log("Añadido. Size: "+list.addAt(person5,3));
+        console.log("Añadido. Size: "+list.addAt(person3,4));
+        console.log("Lista: "+list.toString());
+        console.log("Size: " + list.size());
+        console.log("¿Vacia?: "+list.isEmpty());
+    }catch(error){
+        console.log(error);
+    }
 
-    console.log("-------funcion get--------");
-    console.log("Objeto de la posicion 3:");
-    console.log(list.get(3));
-    console.log("Objeto de la posicion 0:");
-    console.log(list.get(0));
+    try{
+        console.log("-------funcion get--------");
+        console.log("Objeto de la posicion 3:");
+        console.log(list.get(3));
+        console.log("Objeto de la posicion 0:");
+        console.log(list.get(0));
+    }catch(error){
+        console.log(error);
+    }
 
     console.log("-------Funciones Varias------");
     console.log("Lista: "+list.toString());
@@ -196,25 +217,32 @@ function testeo(){
     console.log("LastElement:");
     console.log(list.lastElement());
 
-    console.log("-------Eliminar un objeto de la lista------");
-    console.log("Elimina el objeto de la posicion 0:");
-    console.log(list.remove(0));
-    console.log("Lista: "+list.toString());
-    console.log("----------------");
-    console.log("Elimina el objeto person1:");
-    console.log(list.removeElement(person1));
-    console.log("Lista: "+list.toString());
+    try{
+        console.log("-------Eliminar un objeto de la lista------");
+        console.log("Elimina el objeto de la posicion 0:");
+        console.log(list.remove(0));
+        console.log("Lista: "+list.toString());
+        console.log("----------------");
+        console.log("Elimina el objeto person1:");
+        console.log(list.removeElement(person1));
+        console.log("Lista: "+list.toString());
+    }catch(error){
+        console.log(error);
+    }
 
-    console.log("-------Funcion set------");
-    console.log("Vamos a poner person1 en la posicion 0:");
-    console.log("Posicion: "+list.set(person1, 0));
-    console.log("Lista: "+list.toString());
+    try{
+        console.log("-------Funcion set------");
+        console.log("Vamos a poner person1 en la posicion 0:");
+        console.log("Posicion: "+list.set(person1, 0));
+        console.log("Lista: "+list.toString());
+    }catch(error){
+        console.log(error);
+    }
 
     console.log("-------Funcion Clear------");
     console.log("Limpiar lista: ");
     console.log(list.clear());
     console.log("Lista: "+list.toString());
-
     console.log("");
 
 }

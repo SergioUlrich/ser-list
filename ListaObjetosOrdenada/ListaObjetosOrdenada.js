@@ -1,10 +1,8 @@
 "use strict";
 
 function person(name, surname){
-    
         this.name=name;
         this.surname=surname;
-            
 }
 //Cremos objetos persona
 var person1=new person("Sergio","Diaz");
@@ -12,6 +10,7 @@ var person2=new person("Victor","Perez");
 var person3=new person("Andres","Jimenez");
 var person4=new person("Jorge","Ruiz");
 var person5=new person("David","Cesar");
+
 
 function list(){
     if (!this instanceof(list)) {
@@ -62,6 +61,9 @@ function list(){
     this.get=function(index){
         if (this.isEmpty()) {
             throw new ExceptionListaVacia();
+        }
+        if (index>this.size()) {
+            throw new ExceptionFueraRango();
         }
         var elem=_list[index];
         return elem;
@@ -115,6 +117,9 @@ function list(){
         if (this.isEmpty()) {
             throw new ExceptionListaVacia();
         }
+        if (index>this.size()) {
+            throw new ExceptionFueraRango();
+        }
         var consumido;
         for (var i = 0; i < _list.length; i++) {
             if (index==i) {
@@ -146,24 +151,31 @@ function testeo(){
     console.log("Capacity: " + list.capacity());
 
     //Añadimos objetos a la lista para que se ordenen:
-    console.log("------Añadimos objetos a la lista ordenados por el apellido:----------")
-    console.log("Añadido. Size: "+list.add(person1));
-    console.log("Añadido. Size: "+list.add(person2));
-    console.log("Añadido. Size: "+list.add(person3));
-    console.log("Añadido. Size: "+list.add(person4));
-    console.log("Añadido. Size: "+list.add(person5));
-    console.log("Lista: "+list.toString());
-    console.log("Size: " + list.size());
-    console.log("¿Vacia?: "+list.isEmpty());
-    console.log("");
+    try{
+        console.log("------Añadimos objetos a la lista ordenados por el apellido:----------")
+        console.log("Añadido. Size: "+list.add(person1));
+        console.log("Añadido. Size: "+list.add(person2));
+        console.log("Añadido. Size: "+list.add(person3));
+        console.log("Añadido. Size: "+list.add(person4));
+        console.log("Añadido. Size: "+list.add(person5));
+        console.log("Lista: "+list.toString());
+        console.log("Size: " + list.size());
+        console.log("¿Vacia?: "+list.isEmpty());
+        console.log("");
+    }catch(error){
+        console.log(error);
+    }
 
-    console.log("-------funcion get--------");
-    console.log("Objeto de la posicion 3:");
-    console.log(list.get(3));
-    console.log("Objeto de la posicion 0:");
-    console.log(list.get(0));
-    console.log("");
-
+    try{
+        console.log("-------funcion get--------");
+        console.log("Objeto de la posicion 3:");
+        console.log(list.get(3));
+        console.log("Objeto de la posicion 0:");
+        console.log(list.get(0));
+        console.log("");
+    }catch(error){
+        console.log(error);
+    }
     console.log("-------Funciones Varias------");
     console.log("Lista: "+list.toString());
     console.log("----------------");
@@ -177,15 +189,20 @@ function testeo(){
     console.log(list.lastElement());
     console.log("");
 
-    console.log("-------Eliminar un objeto de la lista------");
-    console.log("Elimina el objeto de la posicion 0:");
-    console.log(list.remove(0));
-    console.log("Lista: "+list.toString());
-    console.log("----------------");
-    console.log("Elimina el objeto person1:");
-    console.log(list.removeElement(person1));
-    console.log("Lista: "+list.toString());
-    console.log("");
+    try{
+        console.log("-------Eliminar un objeto de la lista------");
+        console.log("Elimina el objeto de la posicion 0:");
+        console.log(list.remove(0));
+        console.log("Lista: "+list.toString());
+        console.log("----------------");
+        console.log("Elimina el objeto person1:");
+        console.log(list.removeElement(person1));
+        console.log("Lista: "+list.toString());
+        console.log("");
+    }catch(error){
+        console.log(error);
+    }
+
 
     console.log("-------Funcion Clear------");
     console.log("Limpiar lista:");

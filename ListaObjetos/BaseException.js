@@ -18,14 +18,6 @@ function ExceptionValidacionParametro() {
 ExceptionValidacionParametro.prototype = new BaseException(); 
 ExceptionValidacionParametro.prototype.constructor = ExceptionValidacionParametro;
 
-//Excepción personalizada para indicar valores vacios.
-function ExceptionCampoVacio() {
-	this.name = "ExcepcionCampoVacio";
-	this.message = "El campo no puede estar vacío";
-}
-ExceptionCampoVacio.prototype = new ExceptionValidacionParametro(); 
-ExceptionCampoVacio.prototype.constructor = ExceptionCampoVacio;
-
 function ExceptionFueraRango() {
 	this.name = "ExcepcionFueraRango";
 	this.message = "El valor de 'posicion' esta fuera de rango permitido";
