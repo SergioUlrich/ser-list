@@ -94,6 +94,8 @@ function test(){
     var sh1= new StoreHouse.getInstance();
     console.log("Name: "+sh1.name);
     console.log(sh1);
+    
+    
     console.log("");
 
     //Añadimos y eliminamos al store house
@@ -106,6 +108,8 @@ function test(){
     console.log("Añadimos una categoria a StoreHouse(ya tenia antes la de por defecto)");
     console.log("-------------------");
     console.log("Longitud de category: "+sh1.addCategory(cat1));
+    console.log(cat1.mostrar());
+    
     
     console.log("");
     console.log("Eliminamos una categoria a StoreHouse");
@@ -131,7 +135,7 @@ function test(){
     console.log("Eliminamos un producto a StoreHouse");
     console.log("-------------------");
     console.log("Longitud de products: "+sh1.removeProduct(smart));
-
+    
 }
 
 

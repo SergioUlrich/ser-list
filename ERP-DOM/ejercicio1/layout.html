@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="css/menus.css"/>
+    <title>Ejemplo uso de DOM</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+          
+        <h1><a href="http://elpais.com/" title="Página inicio">Mi periódico</a></h1>
+        <button onclick="recursiva(body)">Recorrer</button>
+      </div>
+      <nav>
+        <ul>
+          <li><a class="internacional" href="#">Internacional </a></li>
+          <li><a class="politica" href="#">Política </a></li>
+          <li><a class="economia" href="#">Economía </a></li>
+          <li><a class="culturas" href="#">Cultura </a></li>
+          <li><a class="sociedad" href="#">Sociedad </a></li>
+          <li><a class="deportes" href="#">Deportes </a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="container">
+      <main>
+          <section id="UHora">
+            <nav class="MenuHorizontal" id="MenuH1">
+              <ul>
+                <li><a href="#">Noticia 1</a></li>
+                <li><a href="#">Noticia 2</a></li>
+                <li><a href="#">Noticia 3</a></li>
+                <li><a href="#">Noticia 4</a></li>
+                </ul>                
+            </nav>
+          </section>
+
+          <section id="MainContent">
+            <article>
+
+              <figure>
+                <a href="#"><img src="images/ayala.jpg"></a>
+                <figcaption>La juez Alaya llega esta mañana a los juzgados de Sevilla.</figcaption>
+              </figure> 
+
+              <h2 class="destacado"><a href="#" title="Ver noticia">Alaya avanza la ‘condena’ de Magdalena Álvarez con una fianza millonaria</a></h2>
+
+              <div class="author">
+                <a href="#" title="Ver todas las noticias de Javier Martín-Arroyo">Javier Martín-Arroyo</a>  
+              </div>
+
+              <summary>
+                <p>La juez responsabiliza a la exministra del sistema de ayudas irregulares para expedientes de regulación de empleo y fija la cautela en 29,5 millones con una imputación recurrida</p>
+              </summary>
+
+              <div class="OtherNews">
+                <ul>
+                  <li><a href="#"><strong>'La instrucción personalista de Alaya', por L. BARBERO</strong> </a></li>
+                  <li><a href="#"><strong>Una década al frente de las finanzas andaluzas</strong> </a></li>
+                  <li><a href="#"><strong>Las fianzas civiles de Alaya suman más de 2.500 millones</strong> </a></li>
+                  <li><a href="#"><strong>El comunicado de Magdalena Álvarez</strong> </a></li>
+                </ul>
+              </div>
+            </article>
+
+            <hr/>
+
+            <article>
+              <figure>
+                <a href="#"><img src="images/obama.jpg"></a>
+                <figcaption>Arseni Yatseniuk con Barack Obama en la Casa Blanca.</figcaption>
+              </figure> 
+
+              <h2 class="destacado"><a href="#" title="Ver noticia">Kiev admite su impotencia ante el referéndum de Crimea</a></h2>
+
+              <div class="author">
+                <a href="#" title="Ver todas las noticias de Javier Martín-Arroyo">SILVIA BLANCO / ENVIADA ESPECIAL</a>  
+              </div>
+
+              <summary>
+                <p>El presidente ucranio afirma que el Ejército no intervendrá en la península. Obama reitera a Yatseniuk el apoyo de la Casa Blanca</p>
+              </summary>
+
+              <div class="OtherNews">
+                <ul>
+                  <li><a href="#"><strong>El G7 amenaza a Rusia con represalias si anexiona a Crimea</strong> </a></li>
+                  <li><a href="#"><strong>Soros pide un Plan Marshall europeo para Ucrania</strong> </a></li>
+                  <li><a href="#"><strong>Kerry se reunirá con Lavrov para tratar de calmar la crisis</strong> </a></li>
+                </ul>
+              </div>
+            </article>
+          </section>
+
+          <section id="ExtraCategorias">
+            <section id="deportes">
+              <h3><a href="#"><strong>Deportes</strong></a></h3>
+              <article>
+                <figure>
+                  <a href="#"><img src="images/guardiola.jpg"></a>
+                  <figcaption>Guardiola y Beckenbauer</figcaption>
+                </figure> 
+                <h2 class="destacado"><a href="#" title="Ver noticia">Beckenbauer: “Acabaremos aburriendo como el Barça”</a></h2>
+                <summary>
+                  <p>El presidente de honor del Bayern critica el estilo impuesto por Guardiola: "Se pasarían el balón hasta en la línea de gol"</p>
+                </summary>
+              </article>
+              <hr/>
+              <article class="OtherArticle">
+                <figure>
+                  <a href="#"><img src="images/kobe.jpg"></a>
+                  <figcaption>Kobe Bryant</figcaption>
+                </figure> 
+                <h2 class="destacado"><a href="#" title="Ver noticia">Kobe y su adiós al curso</a></h2>
+                <summary>
+                  <p>La estrella debía estar recuperada de la rodilla pero los Lakers ya no la esperan hasta la próxima temporada</p>
+                </summary>
+              </article>              
+              <hr/>
+              <article class="OtherArticle">
+                <figure>
+                  <a href="#"><img src="images/schumi.jpg"></a>
+                  <figcaption>Schumacher</figcaption>
+                </figure> 
+                <h2 class="destacado"><a href="#" title="Ver noticia">Michael Schumacher muestra “signos de mejoría”</a></h2>
+                <summary>
+                  <p>La portavoz de la familia sale al paso de las informaciones que señalaban que el piloto se encontraba en estado crítico</p>
+                </summary>
+              </article>              
+              <hr/>
+              <article class="OtherArticle">
+                <figure>
+                  <a href="#"><img src="images/penti.jpg"></a>
+                  <figcaption>El atleta Penti</figcaption>
+                </figure> 
+                <h2 class="destacado"><a href="#" title="Ver noticia">Penti, en libertad con cargos</a></h2>
+                <summary>
+                  <p>El sevillano campeón de Europa de 3.000 obstáculos en 2002, detenido por tráfico de sustancias dopantes, ha prestado declaración ante el juez</p>
+                </summary>
+              </article>                            
+            </section>
+            <section id="cultura">
+              <h3><a href="#"><strong>Astronomía</strong></a></h3>
+              <article>
+                <figure>
+                  <a href="#"><img src="images/estrella.jpg"></a>
+                  <figcaption>ESO / DIGITALIZED SKY SURVEY 2</figcaption>
+                </figure> 
+                <h2 class="destacado"><a href="#" title="Ver noticia">Descubierta una estrella hipergigante</a></h2>
+                <summary>
+                  <p>Con un diámetro 1.300 veces el del Sol, tiene un astro compañero tan cercano que parecen formar un colosal cacahuete</p>
+                </summary>
+              </article>
+            </section>            
+          </section>
+
+      </main>
+      <aside id="SecondMenu">
+        <section id="opinion">
+          <h5>OPINIÓN</h5>
+          <article>
+            <h4><a href="#" title="Ver noticia">Fraudes insultantes</a></h4>
+            <h5 class="tipologia">EDITORIAL </h5>
+            <p>La estafa de los cursos de formación de Madrid se aprovechó de la necesidad de hacer políticas de empleo</p>
+          </article>
+        </section>
+
+        <nav class="MenuVertical" id="Menu1">
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="#">El Tiempo </a></li>
+            <li><a href="#">Playas </a></li>
+            <li><a href="#">Nieve </a></li>
+            <li><a href="#">Tráfico </a></li>
+            <li><a href="#">Gasolineras </a></li>
+            <li><a href="#">Guía TV </a></li>
+            <li><a href="#">Traductor </a></li>
+            <li><a href="#">Diccionarios </a></li>
+            <li><a href="#">Cartelera </a></li>
+            <li><a href="#">Horóscopo </a></li>
+            <li><a href="#">Juegos </a></li>
+            <li><a href="#">Sorteos </a></li>
+            <li><a href="#">Callejero </a></li>
+            <li><a href="#">Podcast </a></li>
+            <li><a href="#">RSS </a></li>
+            <li><a href="#">Mis favoritos </a></li>
+          </ul>
+        </nav>
+
+      </aside>
+    </div>
+
+    <footer>© <strong>Ejemplo para uso de DOM</strong></footer>
+    
+    <button id="recorrer">Recorrer Arbol</button>
+
+    <div id="mostrar">
+      
+    </div>
+  </body>
+  <script src="ejercicio1.js" type="text/javascript"></script>
+  
+</html>

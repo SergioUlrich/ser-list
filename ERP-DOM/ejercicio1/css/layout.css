@@ -1,0 +1,272 @@
+* {
+box-sizing:border-box;
+-moz-box-sizing:border-box; /* Firefox */	
+}
+
+h1, h2, h3, h4, h5, h6, pre, blockquote {
+    margin: 0px; padding:0px;
+}
+
+body {
+	margin: 0px 1%;
+	background-color: #FFF;
+	border-left: 1px solid #CECECE;
+	border-right: 1px solid #CECECE;
+	padding:1.2em;
+	font-family: Tahoma,Arial,Helvetica,sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#container {
+	clear:both;
+	background-color: #E5E5E5;
+	border-top: 1px solid #CACACA;	
+	padding-top: 1em;
+}
+
+
+header div.logo {
+	float: left;
+	padding: 0px 0px 0.5em;
+}
+
+header div.logo a {
+	font-family: serif;
+	color:#353535;
+	font-size: 1.5em;
+}
+
+header nav {
+	float: right;
+	margin: 0;
+}
+
+footer {
+	clear:both;
+	margin-top:1em;
+	background-color: #F6F5F5;
+	padding: 0.5em 0.3125em;
+	border: 0.1em solid #CCC;
+	font: 0.6875em Arial,Helvetica,sans-serif;
+	color: #555;
+}
+
+main {
+	float:left;
+	width: 80%;
+	padding-right: 0.625em;
+	padding-top: 0.625em;
+	background-color: #fff;
+}
+
+#SecondMenu {
+	float:left;
+	width: 20%;	
+	padding-left: 0.625em;
+	padding-top: 0.625em;
+	background-color: #fff;
+	min-width: 12.5em;
+}
+
+#opinion {
+	border:0.0625em solid #7B8723;	
+}
+
+#opinion > h5 {
+	padding:0.2em 1%;
+	background-color: #8F9F29;	
+	border-bottom:0.0625em solid #7B8723;
+	font-size: 1em;
+	color: #fff;
+}
+
+#opinion article {
+	margin-left:0.625em;
+	margin-right:0.625em;
+}
+
+#opinion article h4{
+	font: italic 1.125em Georgia,Arial,Helvetica,Garuda,sans-serif;
+	color:#000;
+	margin-top:0.625em;
+	margin-bottom:0.625em;
+}
+
+#opinion article h4 a{
+	color:#000;
+}
+
+#opinion article h5.tipologia {
+	font-size: 0.625em;
+	text-transform: uppercase;
+	margin-top:0.625em;
+	margin-bottom:0.625em;
+	color: #8F9F29;	
+}
+
+#opinion article p {
+	font: 0.6875em Tahoma,Arial,Helvetica,Garuda,sans-serif;	
+}
+
+#MainContent {
+	float:left;
+	width: 60%;
+	padding:0.625em 0.625em 0.625em 0px;
+}
+
+#ExtraCategorias {
+	min-width: 12.5em;
+	float:left;
+	width: 40%;	
+	padding:0.625em 0 0 0.625em;
+}
+
+#MainContent h2.destacado {
+	font: 2.375em Georgia,"Times New Roman",Times,serif;
+	margin: 0px 0px 0.625em;
+}
+
+#MainContent h2.destacado a {
+	color:#000;
+}
+
+#MainContent h2.destacado a:hover {
+	border-bottom:0.0625em dotted #000;
+	text-decoration: none;
+}
+
+#MainContent article div.author a {
+	font: 0.6875 Arial,Helvetica,Garuda,sans-serif;
+	color: #757575;	
+}
+
+#MainContent article div.author a:hover {
+	border-bottom:0.0625em dotted #757575;
+	text-decoration: none;
+}
+
+#MainContent div.OtherNews {
+	background-color: #f7f7f7;
+	border-top: 0.0625px solid #e6e6e6;
+}
+
+#MainContent div.OtherNews ul{
+}
+
+#MainContent div.OtherNews ul li{
+	font: normal 0.75em Tahoma, Arial, Helvetica, Garuda, sans-serif;
+	padding: 0.3125em 0 0.3125em 0;
+	list-style-image: url(../images/bolillo_505050.png);
+}
+
+#MainContent div.OtherNews ul li a{
+	color: #0097c8;
+}
+
+#MainContent div.OtherNews ul li a:hover{
+	color: #000!important;
+}
+
+#MainContent article figure {
+	margin:0px;
+	box-sizing:content-box;
+	-moz-box-sizing:content-box; /* Firefox */	
+}
+
+#MainContent article figure img{
+	width:100%;
+}
+
+#MainContent article figure a:hover img{
+	opacity: 0.8;
+} 
+
+#MainContent article figcaption {
+	font: normal 0.75em Tahoma, Arial, Helvetica, Garuda, sans-serif;
+	padding: 0.25em 0 0.25em 0;
+	margin: 0;
+	color: #888;
+	border-bottom: 1px dotted #ccc;
+}
+
+#deportes {
+	border: 0.0625em solid #73C000;
+	padding: 0.675em;
+}
+#deportes h3 {
+	margin-top:0.625em;
+	margin-bottom:1em;	
+}
+
+#deportes h3 a{
+	font: bold 1.125em Georgia,Arial,Helvetica,Garuda,sans-serif;
+	color:#73C000;
+}
+
+#cultura {
+	border: 0.0625em solid #009A95;
+	padding: 0.675em;
+}
+#cultura h3 {
+	margin-top:0.625em;
+	margin-bottom:1em;	
+}
+
+#cultura h3 a{
+	font: bold 1.125em Georgia,Arial,Helvetica,Garuda,sans-serif;
+	color:#009A95;
+}
+
+#ExtraCategorias section {
+	margin-bottom:1em;
+}
+
+#ExtraCategorias article figure {
+	margin:0px;
+	box-sizing:content-box;
+	-moz-box-sizing:content-box; /* Firefox */	
+}
+
+#ExtraCategorias article figure img{
+	width:100%;
+}
+
+#ExtraCategorias article  a:hover img{
+	opacity: 0.8;
+} 
+
+#ExtraCategorias article figcaption {
+	font: normal 0.675em Tahoma, Arial, Helvetica, Garuda, sans-serif;
+	text-align: right;
+	padding: 0.25em 0 0.25em 0;
+	margin: 0;
+	color: #888;
+	border-bottom: 0.0625em dotted #ccc;
+}
+
+#ExtraCategorias h2.destacado {
+	font: 1.5em Georgia,"Times New Roman",Times,serif;
+	margin: 0px 0px 0.625em;
+}
+
+#ExtraCategorias h2.destacado a {
+	color:#000;
+}
+
+#ExtraCategorias h2.destacado a:hover {
+	border-bottom:0.0625em dotted #000;
+	text-decoration: none;
+}
+
+#ExtraCategorias article.OtherArticle figure {
+	float:left;
+	width:40%;
+	margin-right: 0.625em;
+}

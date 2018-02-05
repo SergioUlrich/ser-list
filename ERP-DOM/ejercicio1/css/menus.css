@@ -1,0 +1,165 @@
+/* Menu principal cabecera */
+header nav ul {
+	font-family: Tahoma,Arial,Helvetica,sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+}
+
+header nav ul li {
+	list-style-type: none;
+	margin: 0px 0px 0px 0.0625em;
+	float: left;
+}
+
+header nav ul li a {
+	display: block;
+	background-color: #353535;
+	color: #FFF;
+	text-transform: uppercase;
+	padding: 0.5em 0.3125em 1.125em 0.3125em;
+	border-top-width: 6px;
+	border-top-style: solid;
+}
+
+header nav ul li a.internacional {
+	border-top-color: #1172C2;
+}
+
+header nav ul li a.internacional:hover {
+	border-top-color: #ffffff;
+	background-color: #1172C2;
+	text-decoration: none;
+}
+
+header nav ul li a.politica {
+	border-top-color: #FF4D00;
+}
+
+header nav ul li a.politica:hover {
+	border-top-color: #ffffff;
+	background-color: #FF4D00;
+	text-decoration: none;
+}
+
+header nav ul li a.economia {
+	border-top-color: #FF7699;
+}
+
+header nav ul li a.economia:hover {
+	border-top-color: #ffffff;
+	background-color: #FF7699;
+	text-decoration: none;
+}
+
+header nav ul li a.culturas {
+	border-top-color: #E0387A;
+}
+
+header nav ul li a.culturas:hover {
+	border-top-color: #ffffff;
+	background-color: #E0387A;
+	text-decoration: none;
+}
+
+header nav ul li a.sociedad {
+	border-top-color: #1C9B81;
+}
+
+header nav ul li a.sociedad:hover {
+	border-top-color: #ffffff;
+	background-color: #1C9B81;
+	text-decoration: none;
+}
+
+header nav ul li a.deportes {
+	border-top-color: #8CBB00;
+}
+
+header nav ul li a.deportes:hover {
+	border-top-color: #ffffff;
+	background-color: #8CBB00;
+	text-decoration: none;
+}
+
+/* Menu horizontal */
+nav.MenuHorizontal {
+  clear:both;
+  background-color:#8F9F29;
+}
+            
+nav.MenuHorizontal ul
+{
+padding:0;
+margin:0;
+list-style-type:none;
+width:100%;
+border-left:0.0625em solid #7B8723;
+border-top:0.0625em solid #7B8723;
+}
+            
+nav.MenuHorizontal a
+{
+float:left;
+text-decoration:none;
+padding:0.2em 1%;
+border-right:0.0625em solid #7B8723;
+border-bottom:0.0625em solid #7B8723;
+}
+nav.MenuHorizontal li {display:inline;}
+/* Menu horizontal 1*/
+#MenuH1 {
+  background-color:red;
+}
+#MenuH1 a{
+width:25%;
+color:white;            
+background-color:#8F9F29;
+}
+#MenuH1 a:hover {background-color:purple;}
+
+/* Menu vertical*/
+nav.MenuVertical h3 {
+padding:3%;
+color:#0097C8;
+}
+nav.MenuVertical ul {
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+background-color:#DEDEDE;
+border-top:0.0625em solid #0097C8;
+border-left:0.0625em solid #0097C8;
+border-right:0.0625em solid #0097C8;
+}
+nav.MenuVertical li {
+
+}
+nav.MenuVertical a {
+display:block;
+width:100%;
+text-decoration:none;
+color:white;            
+background-color:#DEDEDE;
+padding:0.2em 1%;
+border-bottom:0.0625em solid #0097C8;
+}
+
+/* Menu vertical 1*/
+#Menu1 ul {
+border-top:0.0625em solid #0097C8;
+border-left:0.0625em solid #0097C8;
+border-right:0.0625em solid #0097C8;
+}
+#Menu1 a {
+color:#0097C8;            
+background-color:#DEDEDE;
+border-bottom:0.0625em solid #0097C8;
+}
+#Menu1 a:hover {
+	color:white;
+	background-color:#ff3300;
+}
+

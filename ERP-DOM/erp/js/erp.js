@@ -35,7 +35,7 @@ var StoreHouse=(function () {
                     return {
                         next: function(){
                             return nextIndex < _categories.length ?
-                            {value: _categories[nextIndex++].category, done:false} :
+                            {value: _categories[nextIndex++].category, longitud:_categories.length, done:false} :
                             {done: true};
                         }
                     }
@@ -50,7 +50,7 @@ var StoreHouse=(function () {
                     return {
                         next: function(){
                             return nextIndex < _shops.length ?
-                            {value: _shops[nextIndex++].shop, done:false} :
+                            {value: _shops[nextIndex++], done:false} :
                             {done: true};
                         }
                     }
@@ -65,7 +65,7 @@ var StoreHouse=(function () {
                     return {
                         next: function(){
                             return nextIndex < _products.length ?
-                            {value: _products[nextIndex++].product, done:false} :
+                            {value: _products[nextIndex++], done:false} :
                             {done: true};
                         }
                     }
@@ -92,7 +92,7 @@ var StoreHouse=(function () {
                     throw new CategoryException();    
                 }
                 var pos=getCategoryPosition(category);
-                if (pos===-1) {
+                if (pos<=1) {
                     _categories.push({
                         category: category,
                         _products:[]
@@ -128,11 +128,11 @@ var StoreHouse=(function () {
 				return _categories.findIndex(compareElements);		
             }
             
-            this.addProduct=function(product, category){
+            this.addProduct=function(product){
                 if (!(product instanceof Product)) { 
 					throw new productException();
                 }
-                if (!(category instanceof Category)) { 
+                /*if (!(category instanceof Category)) { 
 					throw new CategoryException();
                 }
 
@@ -140,14 +140,15 @@ var StoreHouse=(function () {
                 var categoryPosition=getCategoryPosition(category);
                 if (categoryPosition === -1){
 					categoryPosition = this.addCategory(category)-1;
-                }
+                }*/
                 
                 //Obtenemos posición de la imagen en la categoría. Si no existe se añade. Si existe se lanza excepción.
 				var productPosition = getProductPosition(product); 	
 				if (productPosition === -1){
 					_products.push(
 						{
-							product: product,
+                            product: product,
+                            category: []
 						}
 					);
 				} 	
@@ -202,17 +203,55 @@ var StoreHouse=(function () {
                 }
             }
 
-            //Devuelve todas los productos de una determinada categoría
-			this.getCategoryProduct = function(category){
-				if (!(category instanceof Category)) { 
+            //Añade producto a una categoria
+            this.addCategoryProduct=function(product, category){
+                if (!(product instanceof Product)) { 
+					throw new productException();
+				}
+                if (!(category instanceof Category)) { 
 					throw new CategoryException();
+                }
+                var categoryPosition = getCategoryPosition(category);
+
+                var productPosition = getProductPosition(product);
+
+                _products[productPosition].category.push(category);
+                    
+                return _products[productPosition].category.length;
+            }
+
+            //Añade producto a una tienda
+            this.addProductInShop=function(product, shop, stock){
+               if (!(product instanceof Product)) { 
+                    throw new productException();
+                }
+                if (!(shop instanceof Shop)) { 
+                    throw new shopException();
+                }
+                
+
+                var shopPosition = getShopPosition(shop);
+
+                var productPosition = getProductPosition(product);
+
+                _shops[shopPosition].products.push(product);
+
+                _shops[shopPosition].stock.push(stock);
+                    
+                return _shops[shopPosition].products.length;
+            }
+
+            //Devuelve todas las categorias de un determinado producto
+			this.getCategoryProduct = function(product){
+				if (!(product instanceof Product)) { 
+					throw new productException();
 				}		
-				var categoryPosition = getCategoryPosition(category); 	
+				var productPosition = getProductPosition(product); 	
 				var nextIndex = 0;
 			    return {
 			       next: function(){
-			           return nextIndex < _categories[categoryPosition].products.length ?
-			               {value: _categories[categoryPosition].products[nextIndex++].product, done: false} :
+			           return nextIndex < _products[productPosition].category.length ?
+			               {value: _products[productPosition].category[nextIndex++], done: false} :
 			               {done: true};
 			       }
 			    }
@@ -224,10 +263,11 @@ var StoreHouse=(function () {
                     throw new shopException();    
                 }
                 var pos=getShopPosition(shop);
-                if (pos===-1) {
+                if (pos<=1) {
                     _shops.push({
                         shop: shop,
-                        products:[]
+                        products:[],
+                        stock:[]
                     });
                 }
                 return _shops.length;
@@ -269,11 +309,13 @@ var StoreHouse=(function () {
 			    return {
 			       next: function(){
 			           return nextIndex < _shops[shopPosition].products.length ?
-			               {value: _shops[shopPosition].products[nextIndex++].product, done: false} :
+			               {value: _shops[shopPosition].products[nextIndex++], done: false} :
 			               {done: true};
 			       }
 			    }
             }
+
+
             
         }
         StoreHouse.prototype={};
@@ -325,7 +367,7 @@ function Category(title="PorDefecto"){
     });
 
     this.mostrar=function(){
-        return "Category: " + this.title + " (" + this.description + ")"; 
+        return this.title + " (" + this.description + ")"; 
     }
 }
 Category.prototype = {};
@@ -362,7 +404,7 @@ Category.prototype.constructor = Category;
         });
         
         Object.defineProperty(this, 'name', {
-            get:function(){
+            get:function(){ 
                 return _name;
             },
             set:function(value){
@@ -414,6 +456,10 @@ Category.prototype.constructor = Category;
                 }
             }
         });
+
+        this.mostrar=function(){
+            return "Product: " + this.name + " (" + this.description + ") "+this.price+" €"; 
+        }
     }
     Product.prototype={};
     Product.prototype.constructor=Product;
@@ -531,6 +577,10 @@ Category.prototype.constructor = Category;
     Television.prototype=Object.create(Product.prototype);
     Television.prototype.constructor=Television;
 
+    Television.prototype.toString= function(){
+        return this.constructor.name+" "+this._price+" "+this._marca;
+    }
+
     //Devolvemos constructores
     window.Product=Product;
     window.Camera=Camera;
@@ -572,7 +622,7 @@ Coords.prototype={};
 Coords.prototype.constructor=Coords;
 
 //Objeto Shop
-function Shop(name=""){
+function Shop(name){
     if (!(this instanceof Shop)) {
         throw new ExceptionAccesoInvalidoConstructor();
     }
@@ -631,6 +681,8 @@ function Shop(name=""){
 			_coordenadas = value;
         }
     });
+
+    
 }
 Shop.prototype={};
 Shop.prototype.constructor=Shop;
