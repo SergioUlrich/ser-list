@@ -1,2 +1,2 @@
 # ser-list
-Version 1.0.6 
+Version 1.0.7
