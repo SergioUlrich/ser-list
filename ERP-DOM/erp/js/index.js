@@ -1,6 +1,7 @@
 "use strict";
 var sh1;
 
+//Al dar al boton inicio
 var activ=document.getElementsByClassName("active");
 activ[0].addEventListener("click", function(){
     //removeeChild();
@@ -18,9 +19,6 @@ function Objects(){
     sh1.addCategory(cat2);
     var cat3=new Category("Televisiones");
     sh1.addCategory(cat3);
-    //console.log("Las categorias añadidas son: ");
-    //var it=sh1.categories;
-    //mostrar(it);
 
     //Creamos una tienda y la añadimos al storeHouse
     var shop1=new Shop(123 ,"Tienda 1");
@@ -29,9 +27,6 @@ function Objects(){
     sh1.addShop(shop1);
     sh1.addShop(shop2);
     sh1.addShop(shop3);
-    /*console.log("Las tiendas añadidas son: ");
-    var its=sh1.shops;
-    mostrar(its);*/
     //Creamos productos
     var cam1= new Camera("1274562", "Nikon", 300, "imagen0.png");
     cam1.description="Camara Nikon de 15mp";
@@ -67,28 +62,11 @@ function Objects(){
     sh1.addQuantityProductInShop(cam1, shop3, 3);
     sh1.addQuantityProductInShop(tv2, shop3, 4);
 
-    //Mostrar los productos de una categoria
-   /*console.log("Mostrar productos de una tienda filtrado por categoria: ");
-    var ita=sh1.getCategoryProduct(cat3, shop3);
-    mostrar(ita);*/
-
-
-    
-
-    //Añañdir stock
-   //sh1.addQuantityProductInShop(cam1, shop1, 3);
-    /*console.log("En la tienda: " + shop1.name);
-    var itrTS1 = sh1.getStockProduct(shop1);
-    mostrarStock(itrTS1);
-    console.log(sh1.getStock(shop1, cam1));
-    console.log(sh1.globalStock(cam1));*/
     
 }
 
 function init(){
-    
     Objects();
-    //menuCategoryShopPopulate();
     shopsMenusPopulate();
 }
 
@@ -299,6 +277,7 @@ function shopPopulate(shop){
   
 }
 
+//Elimina los hijos a partir del main
 function removeeChild(){
     var main=document.getElementById("main");
 
@@ -309,6 +288,7 @@ function removeeChild(){
     }
 }
 
+//Crea el menu de las tiendas y el contenido principal
 function shopsMenusPopulate(){
     var menushop=document.getElementById("MenuShop");
     
@@ -422,7 +402,7 @@ function menuCategoryShopPopulate(shop){
 
 }
 
-function populate(){
+/*function populate(){
    
     var main = document.getElementById("main");
     
@@ -487,7 +467,7 @@ function populate(){
         console.log(item.product.mostrar());			
         items = iterableItem.next();		
     }
-}
+}*/
 
 
 //Muestra el contenido de un producto en una tienda
@@ -571,37 +551,8 @@ function createFunctionShowItem(item, shop){
         p.appendChild(document.createTextNode("Stock Total de "+item.name+" en todas las tiendas : "+globalst));
         thumbnailDiv2.appendChild(p);
 
-        
-        //Sacar modal
-        /*var body=document.getElementById("main");
-        var btn=document.getElementsByClassName("btn");
-        var div=document.createElement("div");
-        div.setAttribute("id", "modal");
-        var modal=document.getElementById("modal");
-        body.appendChild(div);
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }*/
     }
 }
-
-function mostrar(iterator) {
-    var item = iterator.next();
-    while (!item.done) {
-        if(item.value !== '')
-        console.log(item.value.name);
-        item= iterator.next();
-    }
-}
-
-function mostrarStock(itr) {
-    var item = itr.next();
-    while (!item.done) {
-        console.log(item.value.product.name + " Stock: " + item.value.stock);
-        item= itr.next();
-    }
-}
-
 
 
 window.onload=init;
