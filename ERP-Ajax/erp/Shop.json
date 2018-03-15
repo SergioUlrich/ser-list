@@ -1,0 +1,5 @@
+{"shops":[
+    { "cif": "00000001", "name": "Tienda 1"},
+    { "cif": "00000002", "name": "Tienda 2"},
+    { "cif": "00000003", "name": "Tienda 3"}
+]}
